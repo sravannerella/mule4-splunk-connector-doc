@@ -1,0 +1,78 @@
+= Splunk Connector
+
+*_MuleSoft Certified_*
+
+== About Our Splunk Connector
+
+The Splunk Enterprise Server Connector performs the most common tasks against the Splunk API in an easy and consistent way. This connector allows you to not only directly send data from Anypoint Platform into the Splunk Index, but also to perform a wide variety of searches and indexing operations.
+
+Use the connector to work with saved searches, create and run real-time blocking and one-shot searches, retrieve data models, and create and modify data inputs on the fly.
+
+=== Supported Version
+
+[width="50%", options="header"]
+|=======
+|Application/Service |Version
+|Mule Runtime |4.x and later
+|Anypoint Studio | 7.x and later
+|JDK |1.8.x and later
+|=======
+
+=== Splunk Connectivity Check
+[width="50%", options="header"]
+|=======
+|Splunk Type |Supported
+|Cloud | YES
+|On Premise | YES
+|Docker Instance | YES
+|=======
+
+
+== Splunk Connector Installation
+
+=== Download from Anypoint Exchange
+Our connector is Mule Certified meaning you should be able to download the connector directly from Anypoint Exchange.
+
+=== Download as Dependency
+
+. Open your Mule project in Anypoint Studio.
+. Add the connector as a dependency in the pom.xml file:
+
+```
+    <dependency>
+        <groupId>com.mulesoft.connectors</groupId>
+        <artifactId>mule4-splunk-connector</artifactId>
+        <version>3.0.0</version>
+        <classifier>mule-plugin</classifier>
+    </dependency>
+```
+
+== Splunk Connector Configuration
+
+. After Splunk connector is added to the Mule Project.
+. Inside **Global Elements**, On clicking on **Create** you should see **Splunk Connector Config** to configure your Splunk Configuration.
+
+* General configuration parameters:
+
++
+[options="header",width="75%"]
+|=======
+|Field Name |Description    | Example   |Required
+|Baseurl    |Hostname and URL of server hosting Splunk Server.
+
+Splunk Services will be running in 8089 port by default. Unless custom configured to other port| https://localhost:8089 | YES
+|Username   |Enter the username  of Splunk server to log in with. | admin | YES
+|Password   |Enter the corresponding password.| password |YES
+|=======
+
+* Advanced Configuration parameters
+
++
+[options="header",width="75%"]
+|=======
+|Field Name |Description    | Example   | Required
+|Connection timeout   |Timeout for connection, in milliseconds. | 30000 |  NO
+|Connection timeout unit   |Timeout for connection in time metrics| milliseconds | NO
+|Connection Idle Timeout   |Timeout for connection | 30 | NO
+|Connection Idle Timeout unit  |Timeout for connection in time metrics | milliseconds | NO
+|=======

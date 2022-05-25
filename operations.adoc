@@ -1,0 +1,165 @@
+= Splunk Source Listener
+
+== 1. On Run Export Search
+Return a large set of results.
+
+=== Parameters:
+[%header%autowidth.spread]
+|===
+| Parameters | Required | Example
+| Earliest Time | YES | 2022-05-23T15:43:000Z
+| Latest Time | YES | 2022-05-23T15:43:000Z
+| Search Query | YES | search source="http:MULE_LOGS" (index="history" OR index="main" OR index="summary") ("CUSTOM_ERROR:" OR "ERROR") earliest=-4h-5m
+| Search Mode | YES | NORMAL
+| Output Mode | YES | JSON
+|===
+
+== 2. On Run Normal Search
+A normal search runs asynchronously. It returns a search job immediately. Poll the job to determine its status.
+
+=== Parameters:
+[%header%autowidth.spread]
+|===
+| Parameters | Required | Example
+| Search Query | YES | search source="http:MULE_LOGS" (index="history" OR index="main" OR index="summary") ("CUSTOM_ERROR:" OR "ERROR") earliest=-4h-5m
+| Output Mode | YES | JSON
+|===
+
+== 3. On Run Real Time Search
+Real-time searches return live events as they are indexed, and this type of search continues to run as events continue to arrive.
+
+=== Parameters:
+[%header%autowidth.spread]
+|===
+| Parameters | Required | Example
+| Search Query | YES | search source="http:MULE_LOGS" (index="history" OR index="main" OR index="summary") ("CUSTOM_ERROR:" OR "ERROR") earliest=-4h-5m
+| Output Mode | YES | JSON
+| Scheduling Strategy | YES | Fixed Frequency
+|===
+
+
+= Splunk Connector Operations
+
+== 1. Run One Shot Search
+Start a new search and return the search ID (<sid>).
+
+=== Parameters:
+[%header%autowidth.spread]
+|===
+| Parameters | Required | Example
+| One Shot search | YES | 
+| Exec Mode | YES | ONESHOT
+| Output Mode | YES | JSON
+|===
+
+
+== 2. Get jobs
+Get details of all current searches.
+
+=== Parameters:
+[%header%autowidth.spread]
+|===
+| Parameters | Required | Example
+| Output Mode | YES | JSON
+|===
+
+
+== 3. Run blocking search
+Get information about the search_id by search job
+
+=== Parameters:
+[%header%autowidth.spread]
+|===
+| Parameters | Required | Example
+| Create Job | YES | 
+| Output Mode | YES | JSON
+| Exec Mode | YES | BLOCKING
+|===
+
+== 4. Get applications
+List installed apps and properties
+
+=== Parameters:
+[%header%autowidth.spread]
+|===
+| Parameters | Required | Example
+| Output Mode | YES | JSON
+|===
+
+== 5. Get saved search
+Access saved search configurations
+
+=== Parameters:
+[%header%autowidth.spread]
+|===
+| Parameters | Required | Example
+| Output Mode | YES | JSON
+| Earliest Time | YES | 2022-05-23T15:43:000Z
+| Latest Time | YES | 2022-05-23T15:43:000Z
+| List default actions args | NO | False
+| Add Orphan Field | NO | False
+|===
+
+== 6. Create saved search
+Create a Saved Search
+
+=== Parameters:
+[%header%autowidth.spread]
+|===
+| Parameters | Required | Example
+| Saved Search | YES | 
+| Output Mode | YES | JSON
+|===
+
+
+== 7. View saved search properties
+Access the named saved search
+
+=== Parameters:
+[%header%autowidth.spread]
+|===
+| Parameters | Required | Example
+| Name | YES | Search Name
+| Output Mode | YES | JSON
+| Earliest Time | YES | 2022-05-23T15:43:000Z
+| Latest Time | YES | 2022-05-23T15:43:000Z
+| List default actions args | YES | False
+| Add Orphan Field | YES | False
+|===
+
+== 8. Modify saved search properties
+Update the named saved search
+
+=== Parameters:
+[%header%autowidth.spread]
+|===
+| Parameters | Required | Example
+| Saved search properties | YES | 
+| Output Mode | YES | JSON
+| Name | YES | muleApps
+|===
+
+== 9. Get saved search history
+List available search jobs created from the name saved search
+
+=== Parameters:
+[%header%autowidth.spread]
+|===
+| Parameters | Required | Example
+| Name | YES | muleApps
+| Output Mode | YES | JSON
+|===
+
+== 10. Run saved search
+Dispatch the name saved search
+
+=== Parameters:
+[%header%autowidth.spread]
+|===
+| Parameters | Required | Example
+| Saved search run | YES | 
+| Name | YES | muleApp
+| Output Mode | YES | JSON
+|===
+
+
